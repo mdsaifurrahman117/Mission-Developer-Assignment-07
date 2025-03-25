@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from './components/Header'
+import Hero_section from './components/Hero_section'
 
 function App() {
             return (
                         <>
                                     <Header></Header>
-                                    <h1 className="text-4xl text-center font-bold">hello world</h1>
+                                    <Hero_section></Hero_section>
                         </>
             )
 }
