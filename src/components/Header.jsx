@@ -2,7 +2,7 @@ import React from 'react'
 import logo from "../assets/logo.png"
 import Balance from './Balance'
 
-function Header() {
+function Header({balance}) {
             return (
                         <header className="bg-base-100 shadow-sm">
                                     <nav className="navbar w-11/12 mx-auto px-0">
@@ -13,14 +13,17 @@ function Header() {
                                                 </div>
                                                 <div className="navbar-end">
                                                             <div className="hidden lg:flex">
-                                                                        <ul className="menu menu-horizontal px-5 gap-10">
+                                                                        <ul className="menu menu-horizontal px-5 gap-6">
                                                                                     <li><a>Home</a></li>
                                                                                     <li><a>Fixture</a></li>
                                                                                     <li><a>Teams</a></li>
                                                                                     <li><a>Schedules</a></li>
                                                                         </ul>
                                                             </div>
-                                                            <Balance></Balance>
+                                                            <Balance
+                                                                        balance={balance}
+                                                            >
+                                                            </Balance>
                                                             <div className="dropdown dropdown-end">
                                                                         <div tabIndex={0} role="button" className="lg:hidden">
                                                                                     <svg
