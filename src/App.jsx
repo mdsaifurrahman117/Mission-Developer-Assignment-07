@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 import Hero_section from './components/Hero_section'
+import Players from './components/players/Players'
 
 function App() {
             const [balance, set_balance] = useState(0);
@@ -18,6 +19,7 @@ function App() {
                                                 claim_balance={claim_balance}
                                     >
                                     </Hero_section>
+                                    <Players></Players>
                         </>
             )
 }
