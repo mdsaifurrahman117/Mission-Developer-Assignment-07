@@ -2,11 +2,15 @@ import React from 'react'
 import Players from './../players/Players';
 import Selected_players from './Selected_players';
 
-function Players_selection({ handle_selected, selected }) {
+function Players_selection({ handle_selected, selected, handle_buy }) {
             return (
                         <section className="w-11/12 mx-auto my-20">
                                     <div className="flex flex-row justify-between items-center">
-                                                <h1 className="text-2xl">Available Players</h1>
+                                                {
+                                                            selected.player ? <h1 className="text-2xl">Available Players</h1> 
+                                                            : 
+                                                            <h1 className="text-2xl">Selected Players</h1>
+                                                }       
                                                 <div className="join">
                                                             <button
                                                                         onClick={() => { handle_selected("players") }}
@@ -27,7 +31,10 @@ function Players_selection({ handle_selected, selected }) {
                                                 </div>
                                     </div>
                                     {
-                                                selected.player ? <Players></Players> : <Selected_players></Selected_players>
+                                                selected.player ? 
+                                                <Players
+                                                            handle_buy={handle_buy}
+                                                ></Players> : <Selected_players></Selected_players>
                                     }
                         </section>
             )

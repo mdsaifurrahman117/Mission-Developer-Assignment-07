@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Player from "./Player"
 
-function Players() {
+function Players({ handle_buy }) {
             const [players, set_players] = useState([])
             useEffect(() => {
                         fetch("players.json")
@@ -16,6 +16,7 @@ function Players() {
                                                             <Player
                                                                         key={player.playerId}
                                                                         player={player}
+                                                                        handle_buy={handle_buy}
                                                             ></Player>
                                                 )
                                     }

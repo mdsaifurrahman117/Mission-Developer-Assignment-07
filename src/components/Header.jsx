@@ -4,7 +4,7 @@ import Balance from './Balance'
 
 function Header({balance}) {
             return (
-                        <header className="bg-base-100 shadow-sm">
+                        <header className="bg-base-100 shadow-sm z-50 fixed top-0 left-0 right-0">
                                     <nav className="navbar w-11/12 mx-auto px-0">
                                                 <div className="navbar-start">
                                                             <a className="w-14">

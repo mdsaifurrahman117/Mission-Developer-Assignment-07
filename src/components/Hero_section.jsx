@@ -4,7 +4,7 @@ import Banner from "../assets/banner-main.png"
 function Hero_section({claim_balance}) {
             return (
                         <section 
-                                    className="hero w-11/12 mx-auto py-16 px-3  flex flex-col gap-8 items-center justify-center 
+                                    className="hero w-11/12 mx-auto mt-28 py-16 px-3  flex flex-col gap-8 items-center justify-center 
                                     bg-black  my-10 rounded-xl text-white text-center" 
                         >
                                     <img src={Banner} alt="banner logo" />
