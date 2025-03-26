@@ -10,25 +10,16 @@ function Players() {
             }, [])
 
             return (
-                        <section className="w-11/12 mx-auto my-20">
-                                    <div className="flex flex-row justify-between items-center">
-                                                <h1 className="text-2xl">Available Players</h1>
-                                                <div className="join">
-                                                            <button className="btn join-item bg-amber-500">Available</button>
-                                                            <button className="btn join-item">Selected</button>
-                                                </div>
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-10">
-                                                {
-                                                            players.map(player =>
-                                                                        <Player
-                                                                                    key={player.playerId}
-                                                                                    player={player}
-                                                                        ></Player>
-                                                            )
-                                                }
-                                    </div>
-                        </section>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-10">
+                                    {
+                                                players.map(player =>
+                                                            <Player
+                                                                        key={player.playerId}
+                                                                        player={player}
+                                                            ></Player>
+                                                )
+                                    }
+                        </div>
             )
 }
 
