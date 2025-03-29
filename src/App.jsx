@@ -17,40 +17,53 @@ function App() {
             })
 
             const handle_selected = (status) => {
-                        if(status == "players") {
+                        if (status == "players") {
                                     set_selected({
-                                                player : true,
-                                                status : "players"
+                                                player: true,
+                                                status: "players"
                                     })
                         } else {
                                     set_selected({
-                                                player : false,
-                                                status : "selected"
+                                                player: false,
+                                                status: "selected"
                                     })
                         }
             }
-            
+
             const [bidding_price, set_bidding_price] = useState(null)
 
-            useEffect( () => {
-                        if ( bidding_price !== null) {
+            useEffect(() => {
+                        if (bidding_price !== null) {
                                     toast.success("success", {
-                                                position : "top-center"
+                                                position: "top-center"
                                     });
                         }
             }, [bidding_price])
 
-            const handle_buy = (price) => {
-                        if (price > balance) {
-                                    toast.error("not enough money", {
-                                                position : "top-center"
+            const [selected_players, set_selected_players] = useState([]);
+
+            const handle_players = (player) => {
+                        const { biddingPrice } = player;
+                        if (biddingPrice > balance) {
+                                    toast.error("not enough balance", {
+                                                position: "top-center"
                                     });
                         } else {
-                                    set_balance(balance - price);
-                                    set_bidding_price(price);
+                                    set_balance(balance - biddingPrice);
+                                    set_bidding_price(biddingPrice);
                         }
+
+                        const is_exist = selected_players.find((play) => play.playerId == player.playerId);
+                        if (is_exist) {
+                                    toast.error("player already selected", {
+                                                position: "top-center"
+                                    });
+                        }
+
+                        const new_player = [...selected_players, player];
+                        set_selected_players(new_player);
             }
-            
+
             return (
                         <>
                                     <Header
@@ -62,7 +75,7 @@ function App() {
                                     <Players_selection
                                                 handle_selected={handle_selected}
                                                 selected={selected}
-                                                handle_buy={handle_buy}
+                                                handle_players={handle_players}
                                     ></Players_selection>
                         </>
             )

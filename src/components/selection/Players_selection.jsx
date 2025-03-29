@@ -2,7 +2,7 @@ import React from 'react'
 import Players from './../players/Players';
 import Selected_players from './Selected_players';
 
-function Players_selection({ handle_selected, selected, handle_buy }) {
+function Players_selection({ handle_selected, selected, handle_players, players }) {
             return (
                         <section className="w-11/12 mx-auto my-20">
                                     <div className="flex flex-row justify-between items-center">
@@ -33,8 +33,11 @@ function Players_selection({ handle_selected, selected, handle_buy }) {
                                     {
                                                 selected.player ? 
                                                 <Players
-                                                            handle_buy={handle_buy}
-                                                ></Players> : <Selected_players></Selected_players>
+                                                            handle_players={handle_players}
+                                                ></Players> : 
+                                                <Selected_players
+                                                            players={players}
+                                                ></Selected_players>
                                     }
                         </section>
             )

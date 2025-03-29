@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFlag, FaUser } from 'react-icons/fa'
 import { ToastContainer } from 'react-toastify';
 
-function Player({ player, handle_buy }) {
+function Player({ player, handle_players }) {
             const { name, country, image, role, battingType, bowlingType, biddingPrice } = player;
 
             return (
@@ -32,7 +32,7 @@ function Player({ player, handle_buy }) {
                                                 <div className="flex flex-row justify-between items-center">
                                                             <h3>Price : ${biddingPrice}</h3>
                                                             <button 
-                                                                        onClick={ () => {handle_buy(biddingPrice)}}
+                                                                        onClick={ () => {handle_players(player)}}
                                                                         className="btn border border-gray-200 shadow-none"
                                                             >           
                                                                         Choose Player
